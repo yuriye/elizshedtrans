@@ -40,26 +40,8 @@ class Day:
         self.code = 'Я'
         if len(tmp) > 1:
             parts_fromto[0] = tmp[1]
-        if parts_fromto[0].strip() in {'ВУЛ', 'ПАР', 'ТЕР', 'ПИО', 'ЛЕС', 'КОР', 'СОК', 'НИК', 'РАЗ', 'НАГ', 'ЕЛ', }:
+        if parts_fromto[0].strip() in {'ВУЛ', 'ПАР', 'ТЕР', 'ПИО', 'КОР', 'НИК', 'РАЗ', 'НАГ', 'ЕЛ','ЛЕС', 'СОК'}:
             self.pause = 60
-
-            # if self.len == '8:00' or self.len == '08:00':
-            #     self.fin = '18:00'
-            # elif self.len == '7:00' or self.len == '07:00':
-            #     self.fin = '17:00'
-            # elif self.len == '7:12' or self.len == '07:12':
-            #     self.fin = '17:12'
-            # elif self.len == '6:12' or self.len == '06:12':
-            #     self.fin = '16:12'
-            # elif self.len == '4:00' or self.len == '04:00':
-            #     self.pause = 0
-            #     self.start = '10:00'
-            #     self.fin = '14:00'
-            # elif self.len == '4:48' or self.len == '04:48':
-            #     self.pause = 0
-            #     self.start = '10:00'
-            #     self.fin = '14:48'
-
             self.start = '9:00'
             if self.len == '4:00' or self.len == '04:00':
                 self.pause = 0
@@ -67,6 +49,10 @@ class Day:
             elif self.len == '4:48' or self.len == '04:48':
                 self.pause = 0
                 self.start = '10:00'
+
+            if parts_fromto[0].strip() in {'ЛЕС', 'СОК'}:
+                 self.pause = 0
+
 
             self.fin = self.__calculateFin()
 
